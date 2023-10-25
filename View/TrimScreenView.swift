@@ -23,7 +23,7 @@ struct TrimScreenView: View {
                 ScrollView{
                     VStack {
                         ForEach(viewModel.modelList , id: \.id){ index in
-                            NavigationLink(destination: ColorScreenView(viewModel: ColorScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: viewModel.transmissionType, trim: viewModel.trim))){
+                            NavigationLink(destination: ColorScreenView(viewModel: ColorScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: viewModel.transmissionType, trim: viewModel.trim, trimID: index.id ?? 0))){
                                 Text("\(index.name ?? "")")
                                     .font(.title)
                                     .background(Color.white)

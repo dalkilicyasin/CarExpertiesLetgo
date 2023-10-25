@@ -34,7 +34,6 @@ class CarModelYearScreenViewModel : ObservableObject{
             case .failure(let error):
                 print(error.localizedDescription)
             }
-            
         }
     }
 }

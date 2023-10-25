@@ -9,24 +9,33 @@ import Foundation
 import Combine
 import SwiftUI
 
-class ColorScreenViewModel : ObservableObject{
+class ColorScreenViewModel: ObservableObject{
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var colorList: [GetCarModelResponse] = []
-
+    var colorCar = ""
     var model = ""
     var makeId = ""
     var serieId = ""
     var bodyType = ""
     var transmissionType = ""
     var trim = ""
+    var trimID = 0
     
-    init(makeId: String, model: String, serieId: String, bodyType: String, transmissionType: String, trim: String) {
+    init(makeId: String, 
+         model: String,
+         serieId: String,
+         bodyType: String,
+         transmissionType: String,
+         trim: String,
+         trimID: Int) {
+        
         self.makeId = makeId
         self.model = model
         self.serieId = serieId
         self.bodyType = bodyType
         self.transmissionType = transmissionType
         self.trim = trim
+        self.trimID = trimID
     }
     
     func fetch() {

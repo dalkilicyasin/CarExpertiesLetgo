@@ -23,7 +23,7 @@ struct ColorScreenView: View {
                 ScrollView{
                     VStack {
                         ForEach(viewModel.colorList , id: \.id){ index in
-                            NavigationLink(destination: EnterKMScreenView(viewModel: EnterKMScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: viewModel.transmissionType, trim: viewModel.trim))){
+                            NavigationLink(destination: EnterKMScreenView(viewModel: EnterKMScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, bodyType: viewModel.bodyType, transmissionType: viewModel.transmissionType, trim: viewModel.trim, trimID: viewModel.trimID, colorID: index.id ?? 0, colorCar: index.name ?? ""))){
                                 Text("\(index.name ?? "")")
                                     .font(.title)
                                     .background(Color.white)
@@ -40,6 +40,6 @@ struct ColorScreenView: View {
 }
 
 #Preview {
-    ColorScreenView(viewModel: ColorScreenViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType", transmissionType: "Transmission", trim: "trim"))
+    ColorScreenView(viewModel: ColorScreenViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType", transmissionType: "Transmission", trim: "trim", trimID: 0))
 }
 

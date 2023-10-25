@@ -7,15 +7,6 @@
 
 import Foundation
 
-public struct GetCarModelYear: Decodable {
-     public let positionSource: Int
-    
-    public init(from decoder: Decoder) throws {
-        var values = try decoder.unkeyedContainer()
-        self.positionSource = try values.decode(Int.self)
-    }
-}
-
 public struct GetCarModelResponse: Decodable, Identifiable {  
     public let id: Int?
     public let name: String?
@@ -25,8 +16,6 @@ public struct GetCarModelResponse: Decodable, Identifiable {
     public let transmission: OtherInfo?
     public let engine: OtherInfo?
 }
-
-
 
 public struct OtherInfo: Decodable{
     public let id: Int?

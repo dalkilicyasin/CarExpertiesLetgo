@@ -13,7 +13,6 @@ import Combine
 public enum Constants: String {
     case apiKey = "NTUzODIwZjQ1ODgyMTFhZGE3MjY4YzA5NTA5OGY5NjNjYmFmMmNiNGIxZGY0NzRjZTY3ZTVhNjU2ZDZlMjlmMQ"
     case baseURL = "https://api.kacasatar.com/public/api/"
-    case experties = "{\"ceiling\":\"original\",\"front_hood\":\"modified\",\"rear_hood\":\"original\",\"front_left_mudguard\":\"original\",\"front_right_mudguard\":\"original\",\"rear_left_mudguard\":\"original\",\"front_left_door\":\"original\",\"front_right_door\":\"painted\",\"rear_left_door\":\"original\",\"rear_right_door\":\"original\",\"rear_right_mudguard\":\"original\"}"
 }
 
 //MARK: Error Handling
@@ -30,7 +29,7 @@ public enum SelectedAPITYpe: String {
 class Service: ObservableObject {
     static let shared = Service()
     var getCarResponseList : [GetCarModelResponse]?
-    static  func fetchCarData(model: String?, makeId: String?, serieID: String?, selectedAPIType: SelectedAPITYpe?, complation: @escaping (Result<[GetCarModelResponse], ErrorClasss>) -> Void) {
+    static func fetchCarData(model: String?, makeId: String?, serieID: String?, selectedAPIType: SelectedAPITYpe?, complation: @escaping (Result<[GetCarModelResponse], ErrorClasss>) -> Void) {
         var urlString = "\(Constants.baseURL.rawValue)\(selectedAPIType?.rawValue ?? SelectedAPITYpe.model.rawValue)"
         if let model {
             urlString.append("/\(model)/makes")
@@ -90,22 +89,26 @@ class Service: ObservableObject {
         }
     }
     
-    static func fetchExpertiesData(trim_id: Int, model: Int, kilometerage: Int, color_id: Int, complation: @escaping (Result<GetCarModelResponse, ErrorClasss>) -> ()) {
-        var urlString = "\(Constants.baseURL.rawValue)/pricings"
+    static func fetchExpertiesData(parameter: GetCarPriceRequestModel, complation: @escaping (Result<CarPriceResponseModel, ErrorClasss>) -> ()) {
+        var urlString = "\(Constants.baseURL.rawValue)pricings"
         let url = URL(string: urlString)!
-        
-        var parameters: [String: Any] = ["trim_id": trim_id, "model": model, "kilometerage": kilometerage, "expertise": Constants.experties.rawValue]
         let token = "NTUzODIwZjQ1ODgyMTFhZGE3MjY4YzA5NTA5OGY5NjNjYmFmMmNiNGIxZGY0NzRjZTY3ZTVhNjU2ZDZlMjlmMQ"
-        let headers : HTTPHeaders = ["Authorization":"Bearer \(token)"]
-        let request = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-     
+        let headers : HTTPHeaders = ["Content-Type":"application/json","Authorization":"Bearer \(token)"]
+        let request = AF.request(urlString , method: .post, parameters: parameter, encoder: JSONParameterEncoder.default, headers: headers)
         request.responseData { response in
             switch response.result {
             case .success(let data):
+                
                 do {
-                    let jsonData = try JSONDecoder().decode(GetCarModelResponse.self, from: data)
+                    print(response)
+                    let jsonData = try JSONDecoder().decode(CarPriceResponseModel.self, from: data)
                     complation(.success(jsonData))
                 } catch {
+                    if let responseString = String(data: data, encoding: .utf8) {
+                                print("responseString = \(responseString)")
+                            } else {
+                                print("unable to parse response as string")
+                            }
                     complation(.failure(ErrorClasss.failedFetch))
                 }
             case .failure(_):
@@ -113,7 +116,6 @@ class Service: ObservableObject {
             }
         }
     }
-    
     private init() {
         
     }

@@ -17,20 +17,26 @@ struct CarModelYearView: View {
         NavigationView {
             ZStack{
                 viewModel.color.edgesIgnoringSafeArea(.all)
-                VStack{
+                VStack(alignment: .center, spacing: 50){
+                    Spacer(minLength: 10)
                     Text("Please Select the model of year")
-                        .foregroundStyle(.white).font(.largeTitle)
+                        .foregroundStyle(.white).font(.caption2)
+                        .multilineTextAlignment(.center)
+                        
                     ScrollView{
-                        VStack {
+                        VStack(alignment: .leading, spacing: 2) {
                             ForEach(viewModel.modelYears, id: \.self){ index in
-                                    NavigationLink(destination: MakeScreenView(viewModel: MakeScreenViewModel(model:" \(index)"))){
-                                        Text("\(index)")
-                                            .font(.title)
-                                            .background(Color.white)
-                                            .padding(25)
-                                    }
+                                NavigationLink(destination: MakeScreenView(viewModel: MakeScreenViewModel(model:" \(index)"))){
+                                    Text("\(index)")
+                                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50)
+                                        .font(.largeTitle)
+                                        .background(Color.white)
+                                        .cornerRadius(10)
+                                        .padding(10)
+                                        .multilineTextAlignment(.center)
+                                }
                             }
-                        }
+                        }.padding(20)
                     }
                 }
             }.onAppear{
