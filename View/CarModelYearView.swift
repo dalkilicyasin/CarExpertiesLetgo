@@ -8,9 +8,9 @@
 import SwiftUI
 import Combine
 
-struct ContentView: View {
-    @ObservedObject var viewModel: CarModelScreenViewModel
-    init(viewModel: CarModelScreenViewModel) {
+struct CarModelYearView: View {
+    @ObservedObject var viewModel: CarModelYearScreenViewModel
+    init(viewModel: CarModelYearScreenViewModel) {
         self.viewModel = viewModel
     }
     var body: some View {
@@ -22,17 +22,13 @@ struct ContentView: View {
                         .foregroundStyle(.white).font(.largeTitle)
                     ScrollView{
                         VStack {
-                            ForEach(0..<viewModel.modelYears.count, id: \.self){ index in
-                                Button {
-                                    viewModel.goDetail = true
-                                } label: {
-                                    NavigationLink(destination: MakeScreenView(viewModel: MakeScreenViewModel(model:" \(viewModel.modelYears[index])")), isActive: $viewModel.goDetail){
-                                        Text("\(viewModel.modelYears[index])")
+                            ForEach(viewModel.modelYears, id: \.self){ index in
+                                    NavigationLink(destination: MakeScreenView(viewModel: MakeScreenViewModel(model:" \(index)"))){
+                                        Text("\(index)")
                                             .font(.title)
                                             .background(Color.white)
                                             .padding(25)
                                     }
-                                }
                             }
                         }
                     }
@@ -45,5 +41,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(viewModel: CarModelScreenViewModel())
+    CarModelYearView(viewModel: CarModelYearScreenViewModel())
 }

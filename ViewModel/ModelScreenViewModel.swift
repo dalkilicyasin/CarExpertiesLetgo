@@ -1,38 +1,34 @@
 //
-//  SeriesScreenViewModel.swift
+//  TrimScreenViewModel.swift
 //  CarExpertiesLetGo
 //
 //  Created by yasin on 24.10.2023.
 //
-
 import Foundation
 import Combine
 import SwiftUI
 
-class SeriesScreenViewModel : ObservableObject{
+class ModelScreenViewModel : ObservableObject {
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var modelList: [GetCarModelResponse] = []
     @Published var goDetail = false
-    var model = "" 
+    @Published var bodyType = ""
+    var model = ""
     var makeId = ""
-    var serieID = ""
     
-    init(makeId: String, model: String, serieID:String) {
+    init(makeId: String, model: String) {
         self.makeId = makeId
         self.model = model
-        self.serieID = serieID
     }
     
     func fetch() {
-        Service.fetchCarData(model: model, makeId: makeId, serieID: serieID, selectedAPIType: SelectedAPITYpe.model) { [weak self] result in
+        Service.fetchCarData(model: model, makeId: makeId, serieID: nil, selectedAPIType: SelectedAPITYpe.model) { [weak self] result in
             switch result {
             case .success(let dataList):
                 self?.modelList = dataList
-                Service.shared.getCarResponseList = self?.modelList
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
 }
-

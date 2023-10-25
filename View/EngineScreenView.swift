@@ -1,5 +1,5 @@
 //
-//  SeriesScreenView.swift
+//  EngineScreenView.swift
 //  CarExpertiesLetGo
 //
 //  Created by yasin on 24.10.2023.
@@ -7,10 +7,11 @@
 
 import SwiftUI
 import Combine
+import Foundation
 
-struct SeriesScreenView: View {
-    @ObservedObject var viewModel: SeriesScreenViewModel
-    init(viewModel: SeriesScreenViewModel) {
+struct EngineScreenView: View {
+    @ObservedObject var viewModel: EnginScreenViewModel
+    init(viewModel: EnginScreenViewModel) {
         self.viewModel = viewModel
     }
     var body: some View {
@@ -21,9 +22,9 @@ struct SeriesScreenView: View {
                     .foregroundStyle(.white).font(.largeTitle)
                 ScrollView{
                     VStack {
-                        ForEach(viewModel.modelList, id: \.id){ index in
-                            NavigationLink(destination: EngineScreenView(viewModel: EnginScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieID, bodyType: index.body_config?.name ?? ""))){
-                                Text("\(index.body_config?.name ?? "")")
+                        ForEach(viewModel.modelList , id: \.id){ index in
+                            NavigationLink(destination: TransmissionTypeScreenView(viewModel: TransmissonTypeViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: index.transmission?.name ?? ""))){
+                                Text("\(index.engine?.name ?? "")")
                                     .font(.title)
                                     .background(Color.white)
                                     .padding(25)
@@ -32,12 +33,10 @@ struct SeriesScreenView: View {
                     }
                 }
             }
-        }.onAppear{
-            viewModel.fetch()
         }
     }
 }
 
 #Preview {
-    SeriesScreenView(viewModel: SeriesScreenViewModel(makeId: "MakeId", model: "model", serieID: "serieId"))
+    EngineScreenView(viewModel: EnginScreenViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType"))
 }

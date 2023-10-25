@@ -16,7 +16,7 @@ public struct GetCarModelYear: Decodable {
     }
 }
 
-public struct GetCarModelResponse: Decodable, Identifiable{
+public struct GetCarModelResponse: Decodable, Identifiable {  
     public let id: Int?
     public let name: String?
     public let code: String?
@@ -34,23 +34,3 @@ public struct OtherInfo: Decodable{
 }
 
 
-/*
- {
-     "id": 5693,
-     "name": "X-TRAIL 2.0 DCI LE 4x4 OV",
-     "code": "x-trail-2.0-dci-le-4x4-ov",
-     "displacement": "2",
-     "body_config": {
-       "id": 8,
-       "name": "SUV"
-     },
-     "transmission": {
-       "id": 2,
-       "name": "Otomatik"
-     },
-     "engine": {
-       "id": 2,
-       "name": "Dizel"
-     }
-   },
- */

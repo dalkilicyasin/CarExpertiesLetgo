@@ -11,7 +11,7 @@ import SwiftUI
 struct CarExpertiesLetGoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(viewModel: CarModelScreenViewModel())
+            CarModelYearView(viewModel: CarModelYearScreenViewModel())
         }
     }
 }

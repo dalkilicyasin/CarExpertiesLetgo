@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		843D96E02AE71CB600C4D207 /* CarExpertiesLetGoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D96DF2AE71CB600C4D207 /* CarExpertiesLetGoApp.swift */; };
-		843D96E22AE71CB600C4D207 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D96E12AE71CB600C4D207 /* ContentView.swift */; };
+		843D96E22AE71CB600C4D207 /* CarModelYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D96E12AE71CB600C4D207 /* CarModelYearView.swift */; };
 		843D96E42AE71CB700C4D207 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843D96E32AE71CB700C4D207 /* Assets.xcassets */; };
 		843D96E72AE71CB700C4D207 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 843D96E62AE71CB700C4D207 /* Preview Assets.xcassets */; };
 		843D96F12AE71CB700C4D207 /* CarExpertiesLetGoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843D96F02AE71CB700C4D207 /* CarExpertiesLetGoTests.swift */; };
@@ -18,11 +18,24 @@
 		8477EE212AE7B1B900E2103C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8477EE202AE7B1B900E2103C /* Alamofire */; };
 		8477EE252AE7B5E100E2103C /* GetCarModelRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477EE242AE7B5E100E2103C /* GetCarModelRequest.swift */; };
 		8477EE272AE7B69B00E2103C /* GetCarModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477EE262AE7B69B00E2103C /* GetCarModelResponse.swift */; };
-		8477EE292AE7CC6400E2103C /* CarModelScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477EE282AE7CC6400E2103C /* CarModelScreenViewModel.swift */; };
+		8477EE292AE7CC6400E2103C /* CarModelYearScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8477EE282AE7CC6400E2103C /* CarModelYearScreenViewModel.swift */; };
 		84BBB1612AE81CC100960BEA /* MakeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1602AE81CC100960BEA /* MakeScreenView.swift */; };
 		84BBB1632AE81D0500960BEA /* MakeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1622AE81D0500960BEA /* MakeScreenViewModel.swift */; };
 		84BBB1652AE8322700960BEA /* SeriesScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1642AE8322700960BEA /* SeriesScreenView.swift */; };
 		84BBB1672AE8324A00960BEA /* SeriesScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1662AE8324A00960BEA /* SeriesScreenViewModel.swift */; };
+		84BBB1692AE83E4200960BEA /* ModelScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1682AE83E4200960BEA /* ModelScreenView.swift */; };
+		84BBB16B2AE83E6900960BEA /* ModelScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB16A2AE83E6900960BEA /* ModelScreenViewModel.swift */; };
+		84BBB16D2AE855F900960BEA /* EnginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB16C2AE855F900960BEA /* EnginScreenViewModel.swift */; };
+		84BBB16F2AE8564400960BEA /* EngineScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB16E2AE8564400960BEA /* EngineScreenView.swift */; };
+		84BBB1712AE85E7B00960BEA /* TransmissonTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1702AE85E7B00960BEA /* TransmissonTypeViewModel.swift */; };
+		84BBB1732AE85E8C00960BEA /* TransmissionTypeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1722AE85E8C00960BEA /* TransmissionTypeScreenView.swift */; };
+		84BBB1752AE8612200960BEA /* TrimScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1742AE8612200960BEA /* TrimScreenViewModel.swift */; };
+		84BBB1772AE8626C00960BEA /* TrimScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1762AE8626C00960BEA /* TrimScreenView.swift */; };
+		84BBB1792AE87D7A00960BEA /* ColorScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1782AE87D7A00960BEA /* ColorScreenView.swift */; };
+		84BBB17B2AE87DC700960BEA /* ColorScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB17A2AE87DC700960BEA /* ColorScreenViewModel.swift */; };
+		84BBB17D2AE889D700960BEA /* CarPriceResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB17C2AE889D700960BEA /* CarPriceResponseModel.swift */; };
+		84BBB17F2AE88ABA00960BEA /* EnterKMScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB17E2AE88ABA00960BEA /* EnterKMScreenViewModel.swift */; };
+		84BBB1812AE88BA700960BEA /* EnterKMScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BBB1802AE88BA700960BEA /* EnterKMScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +58,7 @@
 /* Begin PBXFileReference section */
 		843D96DC2AE71CB600C4D207 /* CarExpertiesLetGo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarExpertiesLetGo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843D96DF2AE71CB600C4D207 /* CarExpertiesLetGoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarExpertiesLetGoApp.swift; sourceTree = "<group>"; };
-		843D96E12AE71CB600C4D207 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		843D96E12AE71CB600C4D207 /* CarModelYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelYearView.swift; sourceTree = "<group>"; };
 		843D96E32AE71CB700C4D207 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843D96E62AE71CB700C4D207 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		843D96EC2AE71CB700C4D207 /* CarExpertiesLetGoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarExpertiesLetGoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,11 +69,24 @@
 		8477EE1D2AE7AC7B00E2103C /* NetworkServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServices.swift; sourceTree = "<group>"; };
 		8477EE242AE7B5E100E2103C /* GetCarModelRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarModelRequest.swift; sourceTree = "<group>"; };
 		8477EE262AE7B69B00E2103C /* GetCarModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCarModelResponse.swift; sourceTree = "<group>"; };
-		8477EE282AE7CC6400E2103C /* CarModelScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelScreenViewModel.swift; sourceTree = "<group>"; };
+		8477EE282AE7CC6400E2103C /* CarModelYearScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarModelYearScreenViewModel.swift; sourceTree = "<group>"; };
 		84BBB1602AE81CC100960BEA /* MakeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeScreenView.swift; sourceTree = "<group>"; };
 		84BBB1622AE81D0500960BEA /* MakeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeScreenViewModel.swift; sourceTree = "<group>"; };
 		84BBB1642AE8322700960BEA /* SeriesScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesScreenView.swift; sourceTree = "<group>"; };
 		84BBB1662AE8324A00960BEA /* SeriesScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesScreenViewModel.swift; sourceTree = "<group>"; };
+		84BBB1682AE83E4200960BEA /* ModelScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelScreenView.swift; sourceTree = "<group>"; };
+		84BBB16A2AE83E6900960BEA /* ModelScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelScreenViewModel.swift; sourceTree = "<group>"; };
+		84BBB16C2AE855F900960BEA /* EnginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnginScreenViewModel.swift; sourceTree = "<group>"; };
+		84BBB16E2AE8564400960BEA /* EngineScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineScreenView.swift; sourceTree = "<group>"; };
+		84BBB1702AE85E7B00960BEA /* TransmissonTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissonTypeViewModel.swift; sourceTree = "<group>"; };
+		84BBB1722AE85E8C00960BEA /* TransmissionTypeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransmissionTypeScreenView.swift; sourceTree = "<group>"; };
+		84BBB1742AE8612200960BEA /* TrimScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimScreenViewModel.swift; sourceTree = "<group>"; };
+		84BBB1762AE8626C00960BEA /* TrimScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrimScreenView.swift; sourceTree = "<group>"; };
+		84BBB1782AE87D7A00960BEA /* ColorScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScreenView.swift; sourceTree = "<group>"; };
+		84BBB17A2AE87DC700960BEA /* ColorScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScreenViewModel.swift; sourceTree = "<group>"; };
+		84BBB17C2AE889D700960BEA /* CarPriceResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPriceResponseModel.swift; sourceTree = "<group>"; };
+		84BBB17E2AE88ABA00960BEA /* EnterKMScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterKMScreenViewModel.swift; sourceTree = "<group>"; };
+		84BBB1802AE88BA700960BEA /* EnterKMScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterKMScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,9 +194,15 @@
 		8477EE1B2AE7A47600E2103C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				843D96E12AE71CB600C4D207 /* ContentView.swift */,
+				843D96E12AE71CB600C4D207 /* CarModelYearView.swift */,
 				84BBB1602AE81CC100960BEA /* MakeScreenView.swift */,
+				84BBB1682AE83E4200960BEA /* ModelScreenView.swift */,
 				84BBB1642AE8322700960BEA /* SeriesScreenView.swift */,
+				84BBB16E2AE8564400960BEA /* EngineScreenView.swift */,
+				84BBB1722AE85E8C00960BEA /* TransmissionTypeScreenView.swift */,
+				84BBB1762AE8626C00960BEA /* TrimScreenView.swift */,
+				84BBB1782AE87D7A00960BEA /* ColorScreenView.swift */,
+				84BBB1802AE88BA700960BEA /* EnterKMScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,9 +210,15 @@
 		8477EE1C2AE7A52A00E2103C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				8477EE282AE7CC6400E2103C /* CarModelYearScreenViewModel.swift */,
 				84BBB1622AE81D0500960BEA /* MakeScreenViewModel.swift */,
-				8477EE282AE7CC6400E2103C /* CarModelScreenViewModel.swift */,
+				84BBB16A2AE83E6900960BEA /* ModelScreenViewModel.swift */,
 				84BBB1662AE8324A00960BEA /* SeriesScreenViewModel.swift */,
+				84BBB16C2AE855F900960BEA /* EnginScreenViewModel.swift */,
+				84BBB1702AE85E7B00960BEA /* TransmissonTypeViewModel.swift */,
+				84BBB1742AE8612200960BEA /* TrimScreenViewModel.swift */,
+				84BBB17A2AE87DC700960BEA /* ColorScreenViewModel.swift */,
+				84BBB17E2AE88ABA00960BEA /* EnterKMScreenViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -189,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				8477EE262AE7B69B00E2103C /* GetCarModelResponse.swift */,
+				84BBB17C2AE889D700960BEA /* CarPriceResponseModel.swift */,
 			);
 			path = ResponseModel;
 			sourceTree = "<group>";
@@ -337,16 +376,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BBB16F2AE8564400960BEA /* EngineScreenView.swift in Sources */,
 				8477EE1E2AE7AC7B00E2103C /* NetworkServices.swift in Sources */,
+				84BBB1752AE8612200960BEA /* TrimScreenViewModel.swift in Sources */,
 				84BBB1632AE81D0500960BEA /* MakeScreenViewModel.swift in Sources */,
-				843D96E22AE71CB600C4D207 /* ContentView.swift in Sources */,
+				843D96E22AE71CB600C4D207 /* CarModelYearView.swift in Sources */,
+				84BBB17F2AE88ABA00960BEA /* EnterKMScreenViewModel.swift in Sources */,
+				84BBB1732AE85E8C00960BEA /* TransmissionTypeScreenView.swift in Sources */,
+				84BBB1712AE85E7B00960BEA /* TransmissonTypeViewModel.swift in Sources */,
 				843D96E02AE71CB600C4D207 /* CarExpertiesLetGoApp.swift in Sources */,
+				84BBB17B2AE87DC700960BEA /* ColorScreenViewModel.swift in Sources */,
+				84BBB16B2AE83E6900960BEA /* ModelScreenViewModel.swift in Sources */,
 				84BBB1652AE8322700960BEA /* SeriesScreenView.swift in Sources */,
+				84BBB1792AE87D7A00960BEA /* ColorScreenView.swift in Sources */,
 				8477EE272AE7B69B00E2103C /* GetCarModelResponse.swift in Sources */,
 				8477EE252AE7B5E100E2103C /* GetCarModelRequest.swift in Sources */,
+				84BBB1772AE8626C00960BEA /* TrimScreenView.swift in Sources */,
+				84BBB17D2AE889D700960BEA /* CarPriceResponseModel.swift in Sources */,
 				84BBB1672AE8324A00960BEA /* SeriesScreenViewModel.swift in Sources */,
+				84BBB1692AE83E4200960BEA /* ModelScreenView.swift in Sources */,
 				84BBB1612AE81CC100960BEA /* MakeScreenView.swift in Sources */,
-				8477EE292AE7CC6400E2103C /* CarModelScreenViewModel.swift in Sources */,
+				8477EE292AE7CC6400E2103C /* CarModelYearScreenViewModel.swift in Sources */,
+				84BBB1812AE88BA700960BEA /* EnterKMScreenView.swift in Sources */,
+				84BBB16D2AE855F900960BEA /* EnginScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct GetCarModelRequest {
+struct GetCarPriceRequestModel {
     
 }

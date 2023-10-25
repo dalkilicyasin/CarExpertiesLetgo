@@ -21,17 +21,13 @@ struct MakeScreenView: View {
                     .foregroundStyle(.white).font(.largeTitle)
                 ScrollView{
                     VStack {
-                        ForEach(0..<viewModel.modelList.count, id: \.self){ index in
-                            Button {
-                                viewModel.goDetail = true
-                            } label: {
-                                NavigationLink(destination: SeriesScreenView(viewModel: SeriesScreenViewModel(makeId:" \(viewModel.modelList[index].id ?? 1)", model: viewModel.model)), isActive: $viewModel.goDetail){
-                                    Text("\(viewModel.modelList[index].name ?? "")")
+                        ForEach(viewModel.modelList, id: \.id){ index in
+                                NavigationLink(destination: ModelScreenView(viewModel: ModelScreenViewModel(makeId:" \(index.id ?? 1)", model: viewModel.model))){
+                                    Text("\(index.name ?? "")")
                                         .font(.title)
                                         .background(Color.white)
                                         .padding(25)
                                 }
-                            }
                         }
                     }
                 }

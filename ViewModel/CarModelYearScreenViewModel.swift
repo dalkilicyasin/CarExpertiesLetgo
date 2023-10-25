@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import SwiftUI
 
-class CarModelScreenViewModel : ObservableObject{
+class CarModelYearScreenViewModel : ObservableObject{
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var modelList: [GetCarModelResponse] = []
     @Published var modelYears: [Int] = []
