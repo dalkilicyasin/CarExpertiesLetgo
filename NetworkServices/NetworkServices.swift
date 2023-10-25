@@ -21,15 +21,19 @@ public enum ErrorClasss: Error {
     case unknown
 }
 
+//MARK: Selected API Type
 public enum SelectedAPITYpe: String {
     case color = "vehicles/colors"
     case model = "vehicles/models"
 }
 
+//MARK: Singleton Call API Services
 class Service: ObservableObject {
     static let shared = Service()
     var getCarResponseList : [GetCarModelResponse]?
-    static func fetchCarData(model: String?, makeId: String?, serieID: String?, selectedAPIType: SelectedAPITYpe?, complation: @escaping (Result<[GetCarModelResponse], ErrorClasss>) -> Void) {
+    let headers : HTTPHeaders = ["Content-Type":"application/json","Authorization":"Bearer \(Constants.apiKey.rawValue)"]
+// MARK:Generic
+    static func fetchDataFromServer<T: Decodable>(_ selectedType: [T], model: String?, makeId: String?, serieID: String?, selectedAPIType: SelectedAPITYpe?, complation: @escaping (Result<[T], ErrorClasss>) -> Void) {
         var urlString = "\(Constants.baseURL.rawValue)\(selectedAPIType?.rawValue ?? SelectedAPITYpe.model.rawValue)"
         if let model {
             urlString.append("/\(model)/makes")
@@ -41,44 +45,12 @@ class Service: ObservableObject {
             }
         }
         let url = URL(string: urlString)!
-        let token = "NTUzODIwZjQ1ODgyMTFhZGE3MjY4YzA5NTA5OGY5NjNjYmFmMmNiNGIxZGY0NzRjZTY3ZTVhNjU2ZDZlMjlmMQ"
-        let headers : HTTPHeaders = ["Authorization":"Bearer \(token)"]
-        let request = AF.request(url, method: .get, parameters: nil, headers: headers)
+        let request = AF.request(url, method: .get, parameters: nil, headers: Service.shared.headers)
         request.responseData { response in
             switch response.result {
             case .success(let data):
                 do {
-                    let jsonData = try JSONDecoder().decode([GetCarModelResponse].self, from: data)
-                    complation(.success(jsonData))
-                } catch {
-                    complation(.failure(ErrorClasss.failedFetch))
-                }
-            case .failure(_):
-                print("error")
-            }
-        }
-    }
-    
-    static  func fetchCarDataModelYear(model: String?, makeId: String?, serieID: String?, selectedAPIType: SelectedAPITYpe?, complation: @escaping (Result<[Int], ErrorClasss>) -> Void) {
-        var urlString = "\(Constants.baseURL.rawValue)\(selectedAPIType?.rawValue ?? SelectedAPITYpe.model.rawValue)"
-        if let model {
-            urlString.append("/\(model)/makes")
-            if let makeId {
-                urlString.append("/\(makeId)/series")
-                if let serieID {
-                    urlString.append("/\(serieID)/trims")
-                }
-            }
-        }
-        let url = URL(string: urlString)!
-        let token = "NTUzODIwZjQ1ODgyMTFhZGE3MjY4YzA5NTA5OGY5NjNjYmFmMmNiNGIxZGY0NzRjZTY3ZTVhNjU2ZDZlMjlmMQ"
-        let headers : HTTPHeaders = ["Authorization":"Bearer \(token)"]
-        let request = AF.request(url, method: .get, parameters: nil, headers: headers)
-        request.responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let jsonData = try JSONDecoder().decode([Int].self, from: data)
+                    let jsonData = try JSONDecoder().decode([T].self, from: data)
                     complation(.success(jsonData))
                 } catch {
                     complation(.failure(ErrorClasss.failedFetch))
@@ -90,15 +62,12 @@ class Service: ObservableObject {
     }
     
     static func fetchExpertiesData(parameter: GetCarPriceRequestModel, complation: @escaping (Result<CarPriceResponseModel, ErrorClasss>) -> ()) {
-        var urlString = "\(Constants.baseURL.rawValue)pricings"
-        let url = URL(string: urlString)!
-        let token = "NTUzODIwZjQ1ODgyMTFhZGE3MjY4YzA5NTA5OGY5NjNjYmFmMmNiNGIxZGY0NzRjZTY3ZTVhNjU2ZDZlMjlmMQ"
-        let headers : HTTPHeaders = ["Content-Type":"application/json","Authorization":"Bearer \(token)"]
-        let request = AF.request(urlString , method: .post, parameters: parameter, encoder: JSONParameterEncoder.default, headers: headers)
+        let urlString = "\(Constants.baseURL.rawValue)pricings"
+       
+        let request = AF.request(urlString , method: .post, parameters: parameter, encoder: JSONParameterEncoder.default, headers:  Service.shared.headers)
         request.responseData { response in
             switch response.result {
             case .success(let data):
-                
                 do {
                     print(response)
                     let jsonData = try JSONDecoder().decode(CarPriceResponseModel.self, from: data)
@@ -116,7 +85,7 @@ class Service: ObservableObject {
             }
         }
     }
+    
     private init() {
-        
     }
 }

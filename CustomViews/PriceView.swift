@@ -37,44 +37,79 @@ struct PriceView: View {
     }
     var body: some View {
         VStack{
-            VStack(alignment: .leading) {
-                if let model{
-                    Text("Model : \(model)")
+            ZStack{
+                Color.white.edgesIgnoringSafeArea(.all)
+                VStack(alignment: .leading) {
+                    if let model{
+                        Text("Model : \(model)")
+                            .foregroundStyle(.blue).font(
+                                .title
+                                .weight(.medium)
+                            )
+                            
+                    }
+                    
+                    if let carName{
+                        Text("Car Name : \(carName)")
+                            .foregroundStyle(.blue).font(
+                                .title
+                                .weight(.bold)
+                            )
+                    }
+                    
+                    if let engineType{
+                        Text("Engine Type : \(engineType)")
+                            .foregroundStyle(.blue).font(
+                                .title
+                                .weight(.medium)
+                            )
+                    }
+                    
+                    if let transmissionType{
+                        Text("Transmission Type : \(transmissionType)")
+                            .foregroundStyle(.blue).font(
+                                .title
+                                .weight(.medium)
+                            )
+                    }
+                    
+                    if let colorCar{
+                        Text("Car Color : \(colorCar)")
+                            .foregroundStyle(.blue).font(
+                                .title
+                                .weight(.medium)
+                            )
+                    }
+                    
+                    if let kilometer{
+                        Text("KM : \(kilometer)")
+                            .foregroundStyle(.blue).font(
+                                .title
+                                .weight(.medium)
+                            )
+                    }
                 }
-                
-                if let carName{
-                    Text("Car Name : \(carName)")
-                }
-                
-                if let engineType{
-                    Text("Engine Type : \(engineType)")
-                }
-                
-                if let transmissionType{
-                    Text("Transmission Type : \(transmissionType)")
-                }
-                
-                if let colorCar{
-                    Text("Car Color : \(colorCar)")
-                }
-                
-                if let kilometer{
-                    Text("KM : \(kilometer)")
-                }
-            }
-            
+            }.cornerRadius(20)
+            .padding(20)
+ 
             if let carPrice {
                 VStack(spacing: 10){
                     Text("Market Price")
-                        .font(.title)
+                        .foregroundStyle(.black).font(
+                            .largeTitle
+                            .weight(.bold)
+                        )
                     Text("\(carPrice) TL")
-                        .font(.title)
+                        .foregroundStyle(.black).font(
+                            .largeTitle
+                            .weight(.bold)
+                        )
                 }.frame(width: 200, height: 200)
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .background(.green)
+                    .cornerRadius(20)
                     .padding(20)
             }
-            
         }
     }
 }

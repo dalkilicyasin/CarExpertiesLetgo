@@ -12,7 +12,6 @@ import SwiftUI
 class EnginScreenViewModel : ObservableObject{
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var modelList: [GetCarModelResponse] = []
- 
     var model = ""
     var makeId = ""
     var serieId = ""

@@ -17,26 +17,40 @@ struct EnterKMScreenView: View {
     var body: some View {
         ZStack{
             viewModel.color.edgesIgnoringSafeArea(.all)
-            VStack{
-                Text("Please Select the model of year")
-                    .foregroundStyle(.white).font(.largeTitle)
-                ScrollView{
-                    VStack {
+            VStack(alignment: .center){
+                Spacer(minLength: 50)
+                Text("Please Fill in the Millage Information")
+                    .foregroundStyle(.white).font(
+                        .largeTitle
+                        .weight(.bold)
+                    )
+                    .multilineTextAlignment(.center)
+                    .padding(10)
+                    Spacer(minLength: 100)
+                VStack {
                         enterKMView
+                    Spacer(minLength: 300)
                         Button {
                             viewModel.showIndicator.toggle()
                             dissmissKeyboard()
                             viewModel.fetch()
                         } label: {
                             Text("Pricing")
-                                .font(.title)
-                                .background(Color.white)
-                                .padding(25)
+                                .font(
+                                    .title
+                                        .weight(.medium)
+                                   )
+                                   .foregroundColor(.white)
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 50)
+                                .background(Color.green)
+                                .cornerRadius(10)
+                                .padding(10)
+                                .multilineTextAlignment(.center)
                         }.sheet(isPresented: $viewModel.isPresented) {
                             PriceScreenView(viewModel: PriceScreenViewModel(model: viewModel.model, bodyType: viewModel.bodyType, transmissionType: viewModel.getPriceResponse.transmission?.name ?? "", trim: viewModel.trim, engineType: viewModel.getPriceResponse.engine?.name ?? "", colorCar: viewModel.colorCar, km: viewModel.getKMValue, price: viewModel.getPriceResponse.price ?? 0))
                         }
+                    Spacer(minLength: 50)
                     }
-                }
             }
             if viewModel.showIndicator {
                 ProgressView()
@@ -44,9 +58,6 @@ struct EnterKMScreenView: View {
                     .tint(.white)
                     .background(Color.gray.opacity(0.5))
                     .disabled(false)
-            }else {
-                ProgressView()
-                    .disabled(true)
             }
         }.onTapGesture {
             dissmissKeyboard()
@@ -67,6 +78,7 @@ struct EnterKMScreenView: View {
 extension EnterKMScreenView {
     var enterKMView : some View {
         TextField("Km", text: $viewModel.getKMValue, prompt: Text("Km"))
+            .font(.largeTitle)
             .padding()
             .textFieldStyle(.roundedBorder)
             .keyboardType(.numberPad)

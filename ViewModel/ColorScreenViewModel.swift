@@ -39,7 +39,8 @@ class ColorScreenViewModel: ObservableObject{
     }
     
     func fetch() {
-        Service.fetchCarData(model: nil, makeId: nil, serieID: nil, selectedAPIType: SelectedAPITYpe.color) { [weak self] result in
+        //Fetching SeriesList
+        Service.fetchDataFromServer(colorList, model: nil, makeId: nil, serieID: nil, selectedAPIType: SelectedAPITYpe.color) { [weak self] result in
             switch result {
             case .success(let dataList):
                 self?.colorList = dataList

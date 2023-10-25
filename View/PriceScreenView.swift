@@ -18,10 +18,14 @@ struct PriceScreenView: View {
         ZStack{
             viewModel.color.edgesIgnoringSafeArea(.all)
             VStack(alignment: .center){
+                Spacer(minLength: 30)
                 Text("Car Experties Values")
-                    .foregroundStyle(.white).font(.largeTitle)
+                    .foregroundStyle(.white).font(
+                        .largeTitle
+                        .weight(.bold)
+                    )
                 ScrollView{
-                    VStack {
+                    ZStack {
                         PriceView(model: viewModel.model, carName: viewModel.trim, engineType: viewModel.engineType, transmissionType: viewModel.transmissionType, colorCar: viewModel.colorCar, kilometer: viewModel.km, carPrice: String(viewModel.price))
                     }
                 }

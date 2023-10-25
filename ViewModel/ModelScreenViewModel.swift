@@ -11,7 +11,6 @@ import SwiftUI
 class ModelScreenViewModel : ObservableObject {
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var modelList: [GetCarModelResponse] = []
-    @Published var goDetail = false
     @Published var bodyType = ""
     var model = ""
     var makeId = ""
@@ -20,9 +19,9 @@ class ModelScreenViewModel : ObservableObject {
         self.makeId = makeId
         self.model = model
     }
-    
+    //Fetching makeList
     func fetch() {
-        Service.fetchCarData(model: model, makeId: makeId, serieID: nil, selectedAPIType: SelectedAPITYpe.model) { [weak self] result in
+        Service.fetchDataFromServer(modelList, model: model, makeId: makeId, serieID: nil, selectedAPIType: SelectedAPITYpe.model) { [weak self] result in
             switch result {
             case .success(let dataList):
                 self?.modelList = dataList
