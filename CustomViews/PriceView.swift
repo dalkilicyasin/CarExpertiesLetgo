@@ -19,7 +19,7 @@ struct PriceView: View {
     private let kilometer: String?
     private let carPrice: String?
     
-    init(model: String?, 
+    init(model: String?,
          carName: String?,
          engineType: String?,
          transmissionType: String?,
@@ -44,16 +44,15 @@ struct PriceView: View {
                         Text("Model : \(model)")
                             .foregroundStyle(.blue).font(
                                 .title
-                                .weight(.medium)
+                                    .weight(.medium)
                             )
-                            
                     }
                     
                     if let carName{
                         Text("Car Name : \(carName)")
                             .foregroundStyle(.blue).font(
                                 .title
-                                .weight(.bold)
+                                    .weight(.bold)
                             )
                     }
                     
@@ -61,7 +60,7 @@ struct PriceView: View {
                         Text("Engine Type : \(engineType)")
                             .foregroundStyle(.blue).font(
                                 .title
-                                .weight(.medium)
+                                    .weight(.medium)
                             )
                     }
                     
@@ -69,7 +68,7 @@ struct PriceView: View {
                         Text("Transmission Type : \(transmissionType)")
                             .foregroundStyle(.blue).font(
                                 .title
-                                .weight(.medium)
+                                    .weight(.medium)
                             )
                     }
                     
@@ -77,7 +76,7 @@ struct PriceView: View {
                         Text("Car Color : \(colorCar)")
                             .foregroundStyle(.blue).font(
                                 .title
-                                .weight(.medium)
+                                    .weight(.medium)
                             )
                     }
                     
@@ -85,24 +84,24 @@ struct PriceView: View {
                         Text("KM : \(kilometer)")
                             .foregroundStyle(.blue).font(
                                 .title
-                                .weight(.medium)
+                                    .weight(.medium)
                             )
                     }
                 }
             }.cornerRadius(20)
-            .padding(20)
- 
+                .padding(20)
+            
             if let carPrice {
                 VStack(spacing: 10){
                     Text("Market Price")
                         .foregroundStyle(.black).font(
                             .largeTitle
-                            .weight(.bold)
+                                .weight(.bold)
                         )
                     Text("\(carPrice) TL")
                         .foregroundStyle(.black).font(
                             .largeTitle
-                            .weight(.bold)
+                                .weight(.bold)
                         )
                 }.frame(width: 200, height: 200)
                     .frame(minWidth: 0, maxWidth: .infinity)

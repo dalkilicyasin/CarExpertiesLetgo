@@ -32,7 +32,10 @@ class Service: ObservableObject {
     static let shared = Service()
     var getCarResponseList : [GetCarModelResponse]?
     let headers : HTTPHeaders = ["Content-Type":"application/json","Authorization":"Bearer \(Constants.apiKey.rawValue)"]
-// MARK:Generic
+    
+    private init() {}
+    
+//MARK: - Get Request
     static func fetchDataFromServer<T: Decodable>(_ selectedType: [T], model: String?, makeId: String?, serieID: String?, selectedAPIType: SelectedAPITYpe?, complation: @escaping (Result<[T], ErrorClasss>) -> Void) {
         var urlString = "\(Constants.baseURL.rawValue)\(selectedAPIType?.rawValue ?? SelectedAPITYpe.model.rawValue)"
         if let model {
@@ -61,6 +64,7 @@ class Service: ObservableObject {
         }
     }
     
+//MARK: - Post Request
     static func fetchExpertiesData(parameter: GetCarPriceRequestModel, complation: @escaping (Result<CarPriceResponseModel, ErrorClasss>) -> ()) {
         let urlString = "\(Constants.baseURL.rawValue)pricings"
        
@@ -84,8 +88,5 @@ class Service: ObservableObject {
                 print("error")
             }
         }
-    }
-    
-    private init() {
     }
 }
