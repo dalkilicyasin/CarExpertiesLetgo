@@ -12,6 +12,7 @@ import SwiftUI
 class ColorScreenViewModel: ObservableObject{
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var colorList: [GetCarModelResponse] = []
+    @Published var trimID: Int = 0
     var colorCar = ""
     var model = ""
     var makeId = ""
@@ -19,15 +20,13 @@ class ColorScreenViewModel: ObservableObject{
     var bodyType = ""
     var transmissionType = ""
     var trim = ""
-    var trimID = 0
-    
+
     init(makeId: String, 
          model: String,
          serieId: String,
          bodyType: String,
          transmissionType: String,
-         trim: String,
-         trimID: Int) {
+         trim: String) {
         
         self.makeId = makeId
         self.model = model
@@ -35,7 +34,6 @@ class ColorScreenViewModel: ObservableObject{
         self.bodyType = bodyType
         self.transmissionType = transmissionType
         self.trim = trim
-        self.trimID = trimID
     }
     
     func fetch() {
@@ -48,5 +46,14 @@ class ColorScreenViewModel: ObservableObject{
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func filterTrim() {
+        var carModel = Service.shared.getCarResponseList
+        carModel = carModel?.filter({ $0.name == self.trim})
+
+        guard carModel?.isEmpty == false else {return}
+        
+        trimID = carModel?[0].id ?? 0
     }
 }

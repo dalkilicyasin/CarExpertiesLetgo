@@ -12,20 +12,32 @@ import SwiftUI
 class TransmissonTypeViewModel : ObservableObject{
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var modelList: [GetCarModelResponse] = []
-    @Published var goDetail = false
-  
+    @Published var transmissionList: [String] = []
     var model = ""
     var makeId = ""
     var serieId = ""
     var bodyType = ""
-    var transmissionType = ""
+    var engineType = ""
     
-    init(makeId: String, model: String, serieId: String, bodyType: String, transmissionType: String) {
+    init(makeId: String, 
+         model: String,
+         serieId: String,
+         bodyType: String,
+         engineType: String) {
+        
         self.makeId = makeId
         self.model = model
         self.serieId = serieId
         self.bodyType = bodyType
-        self.transmissionType = transmissionType
+        self.engineType = engineType
         self.modelList = Service.shared.getCarResponseList ?? []
+    }
+    
+    func filterTransmiisonList(){
+        self.transmissionList = []
+        for index in self.modelList {
+            self.transmissionList.append(index.transmission?.name ?? "")
+        }
+        self.transmissionList = transmissionList.removeDuplicates()
     }
 }

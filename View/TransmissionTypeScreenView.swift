@@ -29,9 +29,9 @@ struct TransmissionTypeScreenView: View {
                 
                 ScrollView{
                     VStack(alignment: .leading, spacing: 2) {
-                        ForEach(viewModel.modelList , id: \.id){ index in
-                            NavigationLink(destination: TrimScreenView(viewModel: TrimScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: viewModel.transmissionType, trim: index.name ?? ""))){
-                                Text("\(index.transmission?.name ?? "")")
+                        ForEach(viewModel.transmissionList , id: \.self){ index in
+                            NavigationLink(destination: TrimScreenView(viewModel: TrimScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: index))){
+                                Text(index)
                                     .font(
                                         .title
                                             .weight(.medium)
@@ -47,10 +47,12 @@ struct TransmissionTypeScreenView: View {
                     }.padding(20)
                 }
             }
+        }.onAppear{
+            viewModel.filterTransmiisonList() //Filtered multiple elements
         }
     }
 }
 
 #Preview {
-    TransmissionTypeScreenView(viewModel: TransmissonTypeViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType", transmissionType: "Transmission"))
+    TransmissionTypeScreenView(viewModel: TransmissonTypeViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType", engineType: "Transmission"))
 }

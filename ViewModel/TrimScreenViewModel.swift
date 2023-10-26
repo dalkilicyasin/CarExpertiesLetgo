@@ -11,22 +11,32 @@ import SwiftUI
 class TrimScreenViewModel : ObservableObject{
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var modelList: [GetCarModelResponse] = []
-    @Published var goDetail = false
-  
+    @Published var trimList: [String] = []
     var model = ""
     var makeId = ""
     var serieId = ""
     var bodyType = ""
     var transmissionType = ""
-    var trim = ""
     
-    init(makeId: String, model: String, serieId: String, bodyType: String, transmissionType: String, trim: String) {
+    init(makeId: String, 
+         model: String,
+         serieId: String,
+         bodyType: String,
+         transmissionType: String) {
+        
         self.makeId = makeId
         self.model = model
         self.serieId = serieId
         self.bodyType = bodyType
         self.transmissionType = transmissionType
-        self.trim = trim
         self.modelList = Service.shared.getCarResponseList ?? []
+    }
+    
+    func filterTrimList(){
+        self.trimList = []
+        for index in self.modelList {
+            self.trimList.append(index.name ?? "")
+        }
+        self.trimList = trimList.removeDuplicates()
     }
 }

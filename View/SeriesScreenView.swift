@@ -28,9 +28,9 @@ struct SeriesScreenView: View {
                 
                 ScrollView{
                     VStack(alignment: .leading, spacing: 2) {
-                        ForEach(viewModel.modelList, id: \.id){ index in
-                            NavigationLink(destination: EngineScreenView(viewModel: EnginScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieID, bodyType: index.body_config?.name ?? ""))){
-                                Text("\(index.body_config?.name ?? "")")
+                        ForEach(viewModel.bodyList, id: \.self){ index in
+                            NavigationLink(destination: EngineScreenView(viewModel: EnginScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieID, bodyType: index))){
+                                Text(index)
                                     .font(
                                            .title
                                             .weight(.medium)

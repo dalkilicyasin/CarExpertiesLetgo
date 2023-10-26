@@ -51,11 +51,12 @@ struct ColorScreenView: View {
             }
         }.onAppear{
             viewModel.fetch()
+            viewModel.filterTrim()
         }
     }
 }
 
 #Preview {
-    ColorScreenView(viewModel: ColorScreenViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType", transmissionType: "Transmission", trim: "trim", trimID: 0))
+    ColorScreenView(viewModel: ColorScreenViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType", transmissionType: "Transmission", trim: "trim"))
 }
 

@@ -29,9 +29,9 @@ struct EngineScreenView: View {
                 
                 ScrollView{
                     VStack(alignment: .leading, spacing: 2) {
-                        ForEach(viewModel.modelList , id: \.id){ index in
-                            NavigationLink(destination: TransmissionTypeScreenView(viewModel: TransmissonTypeViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: index.transmission?.name ?? ""))){
-                                Text("\(index.engine?.name ?? "")")
+                        ForEach(viewModel.engineList, id: \.self){ index in
+                            NavigationLink(destination: TransmissionTypeScreenView(viewModel: TransmissonTypeViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, engineType: index))){
+                                Text(index)
                                     .font(
                                            .title
                                             .weight(.medium)
@@ -47,6 +47,8 @@ struct EngineScreenView: View {
                     }.padding(20)
                 }
             }
+        }.onAppear{
+            viewModel.filterEngineList() //Filtered multiple elements
         }
     }
 }

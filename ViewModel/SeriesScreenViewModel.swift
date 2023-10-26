@@ -12,7 +12,8 @@ import SwiftUI
 class SeriesScreenViewModel : ObservableObject{
     @Published var color = LinearGradient(colors: [Color.red, Color.black], startPoint: .leading, endPoint: .trailing)
     @Published var modelList: [GetCarModelResponse] = []
-    var model = "" 
+    @Published var bodyList: [String] = []
+    var model = ""
     var makeId = ""
     var serieID = ""
     
@@ -29,10 +30,19 @@ class SeriesScreenViewModel : ObservableObject{
             case .success(let dataList):
                 self?.modelList = dataList
                 Service.shared.getCarResponseList = self?.modelList
+                self?.filterBodyList() //Filtered multiple elements
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    func filterBodyList(){
+        self.bodyList = []
+        for index in self.modelList {
+            self.bodyList.append(index.body_config?.name ?? "")
+        }
+        self.bodyList = bodyList.removeDuplicates()
     }
 }
 

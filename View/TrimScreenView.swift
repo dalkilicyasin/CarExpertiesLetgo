@@ -29,9 +29,9 @@ struct TrimScreenView: View {
                 
                 ScrollView{
                     VStack(alignment: .leading, spacing: 2) {
-                        ForEach(viewModel.modelList , id: \.id){ index in
-                            NavigationLink(destination: ColorScreenView(viewModel: ColorScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: viewModel.transmissionType, trim: viewModel.trim, trimID: index.id ?? 0))){
-                                Text("\(index.name ?? "")")
+                        ForEach(viewModel.trimList, id: \.self){ index in
+                            NavigationLink(destination: ColorScreenView(viewModel: ColorScreenViewModel(makeId: viewModel.makeId, model: viewModel.model, serieId: viewModel.serieId, bodyType: viewModel.bodyType, transmissionType: viewModel.transmissionType, trim: index))){
+                                Text(index)
                                     .font(
                                         .title
                                             .weight(.medium)
@@ -47,11 +47,13 @@ struct TrimScreenView: View {
                     }.padding(20)
                 }
             }
+        }.onAppear{
+            viewModel.filterTrimList() //Filtered multiple elements
         }
     }
 }
 
 #Preview {
-    TrimScreenView(viewModel: TrimScreenViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType", transmissionType: "Transmission", trim: "trim"))
+    TrimScreenView(viewModel: TrimScreenViewModel(makeId: "MakeId", model: "model", serieId: "serieId", bodyType: "BodyType", transmissionType: "Transmission"))
 }
 
