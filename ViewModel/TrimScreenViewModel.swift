@@ -32,6 +32,11 @@ class TrimScreenViewModel : ObservableObject{
         self.modelList = Service.shared.getCarResponseList ?? []
     }
     
+    func filterModelList() {
+        self.modelList = self.modelList.filter { $0.transmission?.name == transmissionType}
+        Service.shared.getCarResponseList = self.modelList
+    }
+    
     func filterTrimList(){
         self.trimList = []
         for index in self.modelList {

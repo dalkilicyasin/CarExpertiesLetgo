@@ -48,6 +48,7 @@ struct TrimScreenView: View {
                 }
             }
         }.onAppear{
+            viewModel.filterModelList() //Filtered model list
             viewModel.filterTrimList() //Filtered multiple elements
         }
     }

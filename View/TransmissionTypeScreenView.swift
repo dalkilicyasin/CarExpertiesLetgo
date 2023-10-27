@@ -48,6 +48,7 @@ struct TransmissionTypeScreenView: View {
                 }
             }
         }.onAppear{
+            viewModel.filterModelList() //Filtered model list
             viewModel.filterTransmiisonList() //Filtered multiple elements
         }
     }

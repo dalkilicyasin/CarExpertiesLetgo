@@ -27,6 +27,11 @@ class EnginScreenViewModel : ObservableObject{
         self.modelList = Service.shared.getCarResponseList ?? []
     }
     
+    func filterModelList() {
+        self.modelList = self.modelList.filter { $0.body_config?.name == bodyType}
+        Service.shared.getCarResponseList = self.modelList
+    }
+    
     func filterEngineList(){
         self.engineList = []
         for index in self.modelList {

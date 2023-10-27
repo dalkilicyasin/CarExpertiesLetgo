@@ -48,6 +48,7 @@ struct EngineScreenView: View {
                 }
             }
         }.onAppear{
+            viewModel.filterModelList() //Filtered model list
             viewModel.filterEngineList() //Filtered multiple elements
         }
     }

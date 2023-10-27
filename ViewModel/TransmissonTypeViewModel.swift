@@ -33,6 +33,11 @@ class TransmissonTypeViewModel : ObservableObject{
         self.modelList = Service.shared.getCarResponseList ?? []
     }
     
+    func filterModelList() {
+        self.modelList = self.modelList.filter { $0.engine?.name == engineType}
+        Service.shared.getCarResponseList = self.modelList
+    }
+    
     func filterTransmiisonList(){
         self.transmissionList = []
         for index in self.modelList {
