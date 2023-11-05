@@ -42,6 +42,7 @@
 		84BE5D012AE97DAE003A2E96 /* PriceScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5D002AE97DAE003A2E96 /* PriceScreenView.swift */; };
 		84BE5D042AE985EF003A2E96 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5D032AE985EF003A2E96 /* PriceView.swift */; };
 		84BE5D0A2AEA7AB0003A2E96 /* ArrayExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BE5D092AEA7AB0003A2E96 /* ArrayExtentions.swift */; };
+		D919512D2AF4F0F00070CB08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D919512C2AF4F0F00070CB08 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		84BE5D002AE97DAE003A2E96 /* PriceScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceScreenView.swift; sourceTree = "<group>"; };
 		84BE5D032AE985EF003A2E96 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		84BE5D092AEA7AB0003A2E96 /* ArrayExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtentions.swift; sourceTree = "<group>"; };
+		D919512C2AF4F0F00070CB08 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				843D96DF2AE71CB600C4D207 /* CarExpertiesLetGoApp.swift */,
 				843D96E32AE71CB700C4D207 /* Assets.xcassets */,
 				843D96E52AE71CB700C4D207 /* Preview Content */,
+				D919512C2AF4F0F00070CB08 /* LaunchScreen.storyboard */,
 			);
 			path = CarExpertiesLetGo;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D919512D2AF4F0F00070CB08 /* LaunchScreen.storyboard in Resources */,
 				843D96E72AE71CB700C4D207 /* Preview Assets.xcassets in Resources */,
 				843D96E42AE71CB700C4D207 /* Assets.xcassets in Resources */,
 			);
@@ -602,12 +606,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CarExpertiesLetGo/Preview Content\"";
-				DEVELOPMENT_TEAM = 379P2B4P77;
+				DEVELOPMENT_TEAM = K4CHZT3Z5F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -631,12 +636,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CarExpertiesLetGo/Preview Content\"";
-				DEVELOPMENT_TEAM = 379P2B4P77;
+				DEVELOPMENT_TEAM = K4CHZT3Z5F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

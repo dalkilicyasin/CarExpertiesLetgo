@@ -33,7 +33,7 @@ class Service: ObservableObject {
     var getCarResponseList : [GetCarModelResponse]?
     let headers : HTTPHeaders = ["Content-Type":"application/json","Authorization":"Bearer \(Constants.apiKey.rawValue)"]
     
-    private init() {}
+    private init() {} // Need for singleton
     
 //MARK: - Get Request
     static func fetchDataFromServer<T: Decodable>(_ selectedType: [T], model: String?, makeId: String?, serieID: String?, selectedAPIType: SelectedAPITYpe?, complation: @escaping (Result<[T], ErrorClasss>) -> Void) {
